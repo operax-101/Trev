@@ -58,15 +58,15 @@ st.markdown("""
 
 # القائمة الجانبية للتنقل بين الأقسام
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #58a6ff;'>🌌 Trev</h2>", unsafe_allowed_html=True)
-    st.markdown("<p style='text-align: center; font-size: 12px;'>بوابة الكفاءات والاستثمار</p>", unsafe_allowed_html=True)
+    st.markdown("<h2 style='text-align: center; color: #58a6ff;'>🌌 Trev</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 12px;'>بوابة الكفاءات والاستثمار</p>", unsafe_allow_html=True)
     st.write("---")
     choice = st.radio("انتقل إلى:", ["🏠 الرئيسية", "💼 بوابة التوظيف (CVs)", "🚀 حاضنة المشاريع", "➕ أضف سيرتك / مشروعك"])
 
 # 1. الصفحة الرئيسية
 if choice == "🏠 الرئيسية":
-    st.markdown("<h1 style='text-align: center;'>منصة تريف التقنية</h1>", unsafe_allowed_html=True)
-    st.markdown("<p style='text-align: center; font-size: 18px; color: #8b949e;'>منصة واحدة تجمع بين التوظيف والمهن من جهة، وبين الاستثمار والتجارة الرقمية من جهة أخرى.</p>", unsafe_allowed_html=True)
+    st.markdown("<h1 style='text-align: center;'>منصة تريف التقنية</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 18px; color: #8b949e;'>منصة واحدة تجمع بين التوظيف والمهن من جهة، وبين الاستثمار والتجارة الرقمية من جهة أخرى.</p>", unsafe_allow_html=True)
     
     st.write("---")
     
@@ -77,7 +77,7 @@ if choice == "🏠 الرئيسية":
             <h3>💼 قسم التوظيف والمهن</h3>
             <p>تصفح السير الذاتية لأبرز المطورين والمصممين، واطلب مقابلات عمل مباشرة بضغطة زر واحدة.</p>
         </div>
-        """, unsafe_allowed_html=True)
+        """, unsafe_allow_html=True)
         
     with col2:
         st.markdown("""
@@ -85,7 +85,7 @@ if choice == "🏠 الرئيسية":
             <h3>🚀 قسم الاستثمار والتجارة</h3>
             <p>اكتشف مشاريع برمجية وتقنية مميزة جاهزة للاستثمار والتمويل، أو تصفح المنتجات الرقمية للشراء المباشر.</p>
         </div>
-        """, unsafe_allowed_html=True)
+        """, unsafe_allow_html=True)
 
 # 2. بوابة التوظيف
 elif choice == "💼 بوابة التوظيف (CVs)":
@@ -106,7 +106,7 @@ elif choice == "💼 بوابة التوظيف (CVs)":
         <br>
         <p>مطور متخصص في بناء لوحات التحكم الذكية وبوتات إدارة السيرفرات بأسلوب عصري ومينيماليست.</p>
     </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
     if st.button("🗓️ طلب مقابلة عمل"):
         st.success("تم إرسال طلب المقابلة بنجاح! سيتم تنبيه صاحب الحساب.")
 
@@ -122,7 +122,7 @@ elif choice == "🚀 حاضنة المشاريع":
         <hr style='border-color: #30363d;'>
         <p><b>حالة المشروع:</b> مطلوب مستثمر للتمويل وتوسيع نطاق البرمجية.</p>
     </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
     
     col_btn1, col_btn2 = st.columns(2)
     with col_btn1:
@@ -147,6 +147,10 @@ elif choice == "➕ أضف سيرتك / مشروعك":
             
     else:
         proj_name = st.text_input("اسم المشروع")
+        proj_desc = st.text_area("شرح فكرة المشروع وثغرات السوق التي يحلها")
+        proj_status = st.selectbox("هدف العرض", ["مطلوب تمويل واستثمار", "منتج جاهز للبيع المباشر"])
+        if st.button("إطلاق المشروع"):
+            st.success("تم إطلاق مشروعك بنجاح في الحاضنة!")
         proj_desc = st.text_area("شرح فكرة المشروع وثغرات السوق التي يحلها")
         proj_status = st.selectbox("هدف العرض", ["مطلوب تمويل واستثمار", "منتج جاهز للبيع المباشر"])
         if st.button("إطلاق المشروع"):
