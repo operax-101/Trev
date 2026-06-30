@@ -54,7 +54,7 @@ st.markdown("""
         border: 1px solid #30363d;
     }
     </style>
-""", unsafe_allowed_html=True)
+""", unsafe_allow_html=True)
 
 # القائمة الجانبية للتنقل بين الأقسام
 with st.sidebar:
